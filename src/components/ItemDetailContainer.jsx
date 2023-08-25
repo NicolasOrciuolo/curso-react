@@ -12,7 +12,7 @@ export const ItemDetailContainer = (props) => {
    myPromise.then(result => {
 
       console.log(result.greeting)
-      
+
       return (
          <>
             <Container>
@@ -20,7 +20,7 @@ export const ItemDetailContainer = (props) => {
             </Container>
          </>
       )
-   })
+   }) 
 
 
 

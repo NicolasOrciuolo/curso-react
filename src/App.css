@@ -5,3 +5,7 @@ img{
 span{
   padding-left: 0.5 rem;
 }
+
+.itemCount span{
+  padding: 1 rem;
+}
