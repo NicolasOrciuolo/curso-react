@@ -11,8 +11,6 @@ function App() {
       <>
       <NavBar />
       <ItemListContainer greeting="Hola!"/>
-      <ItemDetailContainer greeting="Promesa!"/>
-
       </>
    );
 }

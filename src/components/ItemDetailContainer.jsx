@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 
 
+
 export const ItemDetailContainer = (props) => {
 
    const myPromise = new Promise((resolve, reject) =>
@@ -17,6 +18,7 @@ export const ItemDetailContainer = (props) => {
          <>
             <Container>
                <h1>{result.greeting}</h1>
+
             </Container>
          </>
       )
