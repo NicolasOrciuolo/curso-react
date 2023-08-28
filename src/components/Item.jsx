@@ -1,6 +1,5 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import { ItemDetail } from './ItemDetail';
 import { ItemCount } from './ItemCount';
 import { Link } from 'react-router-dom';
 
