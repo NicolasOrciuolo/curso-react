@@ -11,12 +11,12 @@ const categories = ["Golosinas","Chocolates"]
 export const NavBar = () => (
    <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-         <Navbar.Brand href="#home">Tienda Online de Golosinas</Navbar.Brand>
+         <Navbar.Brand href="/">Tienda Online de Golosinas</Navbar.Brand>
          <Navbar.Toggle aria-controls="basic-navbar-nav" />
          <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-               <Nav.Link href="#home">Golosinas</Nav.Link>
-               <Nav.Link href="#link">Chocolates</Nav.Link>
+               <Nav.Link href="/category/Golosinas">Golosinas</Nav.Link>
+               <Nav.Link href="/category/Chocolates">Chocolates</Nav.Link>
             </Nav>
          </Navbar.Collapse>
 

@@ -1,6 +1,8 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import { ItemDetail } from './ItemDetail';
 import { ItemCount } from './ItemCount';
+import { Link } from 'react-router-dom';
 
 
 export const Item = ({ product }) =>
@@ -10,10 +12,12 @@ export const Item = ({ product }) =>
          <Card.Img variant="top" src={product.img} style={{ height: '200px' }} />
          <Card.Body>
             <Card.Title style={{ textAlign: 'center' }}>{product.name}</Card.Title>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }} >
-               <Button variant="outline-info">Ver más</Button>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+               <Link to={`/item/${product.id}`}>
+                  <Button variant="outline-info">Ver más</Button>
+               </Link>
             </div>
          </Card.Body>
          <ItemCount />
       </Card>
-   </div>
+   </div >
