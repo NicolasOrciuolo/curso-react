@@ -9,8 +9,10 @@ import './App.css';
 function App() {
    return (
       <>
-      <NavBar />
-      <ItemListContainer greeting="Hola!"/>
+         <NavBar />
+         {/* <ItemListContainer greeting="Hola!" /> */}
+         <ItemDetailContainer />
+
       </>
    );
 }
