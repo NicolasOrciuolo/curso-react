@@ -1,9 +1,14 @@
 import Card from 'react-bootstrap/Card';
 import { ItemCount } from './ItemCount';
+import { CartContext } from '../contexts/CartContext';
+import { useContext } from 'react';
 import { Item } from './Item';
 
 export const ItemDetail = ({ product }) => {
-   const onAdd = (count) => alert(count);
+   const { addItem } = useContext(CartContext)
+   const onAdd = (count) => addItem(product, count);
+
+
 
    return (
       <Card key={product.id} border="primary">
