@@ -34,7 +34,6 @@ export const ItemDetailContainer = (props) => {
       )
    }
 
-
    return (
       <>
          <Container>

@@ -1,7 +1,11 @@
 import Card from 'react-bootstrap/Card';
+import { ItemCount } from './ItemCount';
+import { Item } from './Item';
 
+export const ItemDetail = ({ product }) => {
+   const onAdd = (count) => alert(count);
 
-export const ItemDetail = ({product}) => (
+   return (
       <Card key={product.id} border="primary">
          <Card.Header>{product.category}</Card.Header>
          <Card.Img variant="top" src={product.img} style={{ height: '50vh', width: '50vh', alignSelf: 'center' }} />
@@ -10,5 +14,7 @@ export const ItemDetail = ({product}) => (
             <Card.Text> {product.detail}
             </Card.Text>
          </Card.Body>
+         <ItemCount onAdd={onAdd} />
       </Card>
-)
+   );
+}

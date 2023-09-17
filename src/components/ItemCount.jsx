@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 const stock = 10;
 
-export const ItemCount = () => {
+export const ItemCount = ({ onAdd }) => {
    const [count, setCount] = useState(1);
 
    const handleDecreaseCount = () => {
@@ -20,17 +20,14 @@ export const ItemCount = () => {
 
    return (
       <div className="itemCount">
-         <div style={{justifyContent: 'center', alignItems: 'center', display: 'flex'}}>
+         <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
             <Button onClick={handleDecreaseCount}>-</Button>
             <span>{count}</span>
             <Button onClick={handleIncreaseCount}>+</Button>
          </div>
-         <div style={{justifyContent: 'center', alignItems: 'center', display: 'flex'}} >
-         <Button variant="outline-success">Agregar</Button>
+         <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }} >
+            <Button onClick={() => onAdd(count)} variant="outline-success">Agregar</Button>
          </div>
       </div>
    )
-
-
-
 }
