@@ -4,6 +4,8 @@ import { ItemDetailContainer } from './components/ItemDetailContainer';
 import { NavBar } from './components/NavBar';
 import './App.css';
 import { CartProvider } from './contexts/CartContext';
+import { getFirestore, getDocs, collection } from 'firebase/firestore'
+
 
 function App() {
    return (

@@ -18,7 +18,7 @@ export const ItemCount = ({ onAdd }) => {
       }
    }
 
-   return (
+      return (
       <div className="itemCount">
          <div style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}>
             <Button onClick={handleDecreaseCount}>-</Button>

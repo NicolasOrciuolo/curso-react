@@ -1,12 +1,9 @@
 import Container from 'react-bootstrap/Container';
 import data from '../data/products.json'
 import Spinner from 'react-bootstrap/Spinner';
-
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail';
-
 import { useState, useEffect } from "react";
-
 
 export const ItemDetailContainer = (props) => {
    const [product, setProduct] = useState(null);
@@ -20,7 +17,6 @@ export const ItemDetailContainer = (props) => {
             resolve(productById)
          }, 2000);
       })
-
       promise.then((data) => setProduct(data));
    }, [])
 
