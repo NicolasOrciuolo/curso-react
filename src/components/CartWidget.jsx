@@ -8,7 +8,7 @@ export const CartWidget = () => {
    return (
       <>
          <img src={cart} alt="Carrito" />
-         <span>{totalWidget}</span>
+         <span class="p-2 fs-5" >{totalWidget}</span>
       </>
    )
 }

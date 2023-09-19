@@ -3,8 +3,7 @@ import Button from 'react-bootstrap/Button';
 import { ItemCount } from './ItemCount';
 import { Link } from 'react-router-dom';
 
-
-export const Item = ({ product }) =>
+export const Item = ({ product }) => 
    <div style={{ padding: '1rem' }}>
       <Card key={product.id} border="primary">
          <Card.Header>{product.category}</Card.Header>
@@ -17,6 +16,5 @@ export const Item = ({ product }) =>
                </Link>
             </div>
          </Card.Body>
-         <ItemCount />
       </Card>
    </div >

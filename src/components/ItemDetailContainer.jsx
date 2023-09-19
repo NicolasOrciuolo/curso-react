@@ -4,23 +4,25 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail';
 import { useState, useEffect } from "react";
+import { getFirestore, getDoc, doc } from 'firebase/firestore'
 
 export const ItemDetailContainer = (props) => {
    const [product, setProduct] = useState(null);
+   const [loading, setLoading] = useState(true);
 
    const { id } = useParams();
 
    useEffect(() => {
-      const promise = new Promise((resolve, reject) => {
-         setTimeout(() => {
-            const productById = data.find((product) => product.id === id);
-            resolve(productById)
-         }, 2000);
-      })
-      promise.then((data) => setProduct(data));
+      const db = getFirestore()
+
+      const refDoc = doc(db, "products", id)
+
+      getDoc(refDoc).then(snapshot => {
+         setProduct({ id: snapshot.id, ...snapshot.data() })
+      }).finally(() => setLoading(false))
    }, [])
 
-   if (!product) {
+   if (loading) {
       return (
          <Container>
             <div style={{ textAlign: 'center', padding: '1rem' }}>
