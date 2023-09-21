@@ -3,10 +3,12 @@ import Table from 'react-bootstrap/Table';
 import { CartContext } from '../contexts/CartContext';
 import { useContext } from 'react';
 import { ItemList } from './ItemList';
+import Button from 'react-bootstrap/esm/Button';
 
 export const Cart = () => {
-   const { items } = useContext(CartContext)
+   const { items, removeItem, clear } = useContext(CartContext)
 
+   const total = () => items.reduce((acc, val) => acc + val.quantity * val.price, 0)
 
    return (
       <>
@@ -18,7 +20,6 @@ export const Cart = () => {
                      <th>Nombre</th>
                      <th>Cantidad</th>
                      <th>Precio</th>
-                     <th>Total</th>
                      <th>Eliminar</th>
                   </tr>
                </thead>
@@ -28,10 +29,21 @@ export const Cart = () => {
                         <td>{item.name}</td>
                         <td>{item.quantity}</td>
                         <td>$ {item.price}</td>
-                        <td>$ {item.price}*{item.quantity}</td>
+                        <td>
+                           <Button variant="danger" onClick={() => removeItem(item.id)}>Eliminar Producto</Button>
+                        </td>
                      </tr>
                   ))}
                </tbody>
+               <tfoot class="text-center">
+                  <tr>
+                     <td colSpan={2}>Total</td>
+                     <td>$ {total()}</td>
+                     <td>
+                        <Button variant="danger" onClick={() => clear()}>Vaciar Carrito</Button>
+                     </td>
+                  </tr>
+               </tfoot>
 
             </Table>
          </Container>
