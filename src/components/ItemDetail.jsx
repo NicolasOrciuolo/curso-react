@@ -5,6 +5,7 @@ import { useContext } from 'react';
 
 export const ItemDetail = ({ product }) => {
    const { addItem } = useContext(CartContext)
+   
    const onAdd = count => addItem(product, count);
 
    return (
@@ -17,7 +18,7 @@ export const ItemDetail = ({ product }) => {
             <Card.Text> Stock: {product.stock} </Card.Text>
             <Card.Text> Precio: ${product.price} </Card.Text>
          </Card.Body>
-         <ItemCount onAdd={onAdd} />
+         <ItemCount stock={product.stock} onAdd={onAdd} />
       </Card>
    );
 }

@@ -1,9 +1,7 @@
 import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 
-const stock = 10;
-
-export const ItemCount = ({ onAdd }) => {
+export const ItemCount = ({ onAdd, stock }) => {
    const [count, setCount] = useState(1);
 
    const handleDecreaseCount = () => {
