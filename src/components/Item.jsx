@@ -11,6 +11,7 @@ export const Item = ({ product }) =>
          <Card.Img variant="top" src={product.img} style={{ height: '200px' }} />
          <Card.Body>
             <Card.Title style={{ textAlign: 'center' }}>{product.name}</Card.Title>
+            <Card.Body style={{ textAlign: 'center' }}>Precio: ${product.price}</Card.Body>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                <Link to={`/item/${product.id}`}>
                   <Button variant="outline-info">Ver más</Button>
