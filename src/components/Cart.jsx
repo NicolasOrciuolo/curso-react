@@ -7,8 +7,9 @@ import Row from 'react-bootstrap/Row';
 import { CartContext } from '../contexts/CartContext';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { ItemList } from './ItemList';
 import { getFirestore, addDoc, collection } from 'firebase/firestore'
+import { toast } from 'react-toastify';
+
 
 export const Cart = () => {
    const { items, removeItem, clear } = useContext(CartContext)
@@ -29,7 +30,16 @@ export const Cart = () => {
 
    const sendOrder = () => {
       if (formValues.name === "" || formValues.phone === "" || formValues.email === "") {
-         console.log("Completá el formulario")
+         toast.error(`Por favor, complete todos los campos solicitados`, {
+            position: "top-center",
+            autoClose: 1500,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+         });
       } else {
          const order = {
             buyer: formValues,
@@ -42,7 +52,19 @@ export const Cart = () => {
 
          addDoc(orderCollection, order).then(({ id }) => {
             if (id) {
-               alert("Su orden: " + id + " ha sido completada!")
+               toast.success(`El pedido 
+               ${id} 
+               se ha registrado con éxito!`, {
+                  position: "top-center",
+                  autoClose: 2000,
+                  hideProgressBar: true,
+                  closeOnClick: false,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+                  theme: "light",
+               });
+
                setFormValues({
                   name: "",
                   phone: "",

@@ -5,6 +5,10 @@ import { NavBar } from './components/NavBar';
 import { CartProvider } from './contexts/CartContext';
 import { Cart } from './components/Cart';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
+
 
 function App() {
    return (
@@ -18,6 +22,7 @@ function App() {
                <Route path="/cart" element={<Cart />} />
             </Routes>
          </BrowserRouter>
+         <ToastContainer />
       </CartProvider>
    );
 }
