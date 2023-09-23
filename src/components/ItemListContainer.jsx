@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { ItemList } from './ItemList';
 import Spinner from 'react-bootstrap/Spinner';
-import { getFirestore, getDocs, collection } from 'firebase/firestore'
+import { getFirestore, getDocs, collection, query, where } from 'firebase/firestore'
 
 export const ItemListContainer = (props) => {
    const [products, setProducts] = useState([]);
@@ -11,21 +11,25 @@ export const ItemListContainer = (props) => {
    const { id } = useParams();
 
    useEffect(() => {
-      const db = getFirestore();
+      const db = getFirestore()
 
-      const refCollection = collection(db, "products");
+      const refCollection = id
+         ? query(collection(db, "products"), where("category", "==", id))
+         : collection(db, "products")
 
-      getDocs(refCollection)
-         .then(snapshot => {
-            if (snapshot.size === 0) console.log("no products");
-            else
-               setProducts(snapshot.docs.map(doc => {
-                  return { id: doc.id, ...doc.data() };
+      getDocs(refCollection).then(snapshot => {
+         if (snapshot.size === 0) setProducts([])
+         else {
+            setProducts(
+               snapshot.docs.map(doc => ({
+                  id: doc.id, ...doc.data()
                }))
-         }).finally(() => {
-            setLoading(false);
-         });
-   }, [])
+            )
+         }
+      }).finally(() => {
+         setLoading(false);
+      })
+   }, [id])
 
    if (loading) {
       return (
