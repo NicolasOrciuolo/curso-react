@@ -1,7 +1,5 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { ItemCount } from './ItemCount';
 import { Link } from 'react-router-dom';
 
 export const Item = ({ product }) => 

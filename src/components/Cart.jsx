@@ -10,7 +10,6 @@ import { useContext } from 'react';
 import { getFirestore, addDoc, collection } from 'firebase/firestore'
 import { toast } from 'react-toastify';
 
-
 export const Cart = () => {
    const { items, removeItem, clear } = useContext(CartContext)
 
@@ -70,6 +69,7 @@ export const Cart = () => {
                   phone: "",
                   email: "",
                })
+
                clear()
             }
          })

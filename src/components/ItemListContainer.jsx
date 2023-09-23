@@ -1,8 +1,8 @@
 import Container from 'react-bootstrap/Container';
+import Spinner from 'react-bootstrap/Spinner';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from "react";
 import { ItemList } from './ItemList';
-import Spinner from 'react-bootstrap/Spinner';
 import { getFirestore, getDocs, collection, query, where } from 'firebase/firestore'
 
 export const ItemListContainer = (props) => {

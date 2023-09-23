@@ -1,12 +1,11 @@
 import Container from 'react-bootstrap/Container';
-import data from '../data/products.json'
 import Spinner from 'react-bootstrap/Spinner';
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail';
 import { useState, useEffect } from "react";
 import { getFirestore, getDoc, doc } from 'firebase/firestore'
 
-export const ItemDetailContainer = (props) => {
+export const ItemDetailContainer = () => {
    const [product, setProduct] = useState(null);
    const [loading, setLoading] = useState(true);
 
